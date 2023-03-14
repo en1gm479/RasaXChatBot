@@ -1,0 +1,281 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yup
+    - yeah
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - nah
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+  
+    
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+
+- intent: mood_angry
+  examples: |
+    - I am angry
+    - I am feeling so angry
+    - I am so annoyed
+    - It's annoying
+    - That's aggravating
+    - I'm furious
+    - That is infuriating
+    - I'm very mad
+    - Everything vexes me
+    - I am outraged
+    - That is outrageous!
+    - I feel hostile
+    - I am very frustrated
+    - It is irritating me
+    - I feel so offended
+    - I am full of fury
+    - I feel very belligerent
+    - I hate doing this
+    - I have no patience today
+    - I could not control my anger
+    - I am annoyed
+    - I am super annoyed
+    - I am so mad.
+    - I am enraged
+    - I am straight up angry.
+    - This is maddening!
+    - I'm pissed off
+    - I'm pissed
+    - You bet I'm angry
+    - That made me angry
+    - U made me angry
+    - I'm still angry about that
+
+
+
+- intent: mnnit_info
+  examples: |
+    - mnnit
+    - what is mnnit
+    - what is motilal nehru institute of technology
+    - information about mnnit
+    - tell me about mnnit
+    - sites of mnnit
+    - website of mnnit
+    - year of establisation of mnnit
+    - when mnnit established
+    - when mnnit started
+    - where mnnit can be found 
+    - location of mnnit
+# rasa paraphraser , nlu dataset praphraser 
+
+- intent: cc_info
+  examples: |
+    - cc club
+    - what is cc club
+    - information about cc club
+    - tell me about cc club
+    - information about cc club
+    - tell me about cc club
+    - member of cc club
+    - co ordinator of cc club
+    - who manages the cc club?
+    - computer coding club
+    - what is computer coding club
+    - information about computer coding club
+    - tell me about computer coding club
+    - information about computer coding club
+    - tell me about computer coding club
+    - member of computer coding club
+    - co ordinator of computer coding club
+    - who manages the computer coding club?
+    - what is computer coding club of mnnit
+    - sites of cc club
+    - website of cc club
+    - year of establisation of cc club
+    - when cc club established
+    - when cc club started
+    - where cc club can be found 
+    - cc club in mnnit
+    - location of cc club
+    - sites of computer coding club
+    - website of computer coding club
+    - year of establisation of computer coding club
+    - when computer coding club established
+    - when computer coding club started
+    - where computer coding club can be found 
+    - computer coding club in mnnit
+    - location of computer coding club
+  
+
+- intent: robotics_info
+  examples: |
+    - robotics club
+    - what is robotics club
+    - what is robotics club motilal nehru institute of technology
+    - what is robotics club of mnnit 
+    - information about robotics club
+    - tell me about robotics club
+    - member of robotics club
+    - co ordinator of robotics club
+    - who manages the robotics club?
+    - sites of robotics club
+    - website of robotics club
+    - year of establisation of robotics club
+    - when robotics club established
+    - when robotics club started
+    - where robotics club can be found 
+    - robotic club in mnnit
+    - location of robotics club
+
+
+- intent: general_clubs
+  examples: |
+    - how many clubs in mnnit
+    - what are different clubs in mnnit
+    - information regarding different club
+    - clubs in mnnit
+
+
+
+
+- intent: robotics_project
+  examples: |
+    - what are the different project done under robotics club?
+    - projects of robotics club
+    - projects done by member of robotics club
+    - projects run by robotics club
+    - robotics club projects
+    - projects controlled by robotics club
+    - projects managed by robotics club
+
+
+- intent: bot_can_do
+  examples: |
+    - features of bot
+    - features
+    - what can you do?
+    - about your work
+    - what are your features?
+    - what are your functions?
+    - what are you able to do
+    - what you can do for me?
+    - what are you capable of?
+    - what are you capability?
+
+
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who is your father?
+    - who is your mother?
+    - where you live?
+    - who is your crush?
+    - how many baby you have?
+    - how many crush you have?
+    - how many babies you have?
+    - will you my girlfreind?
+    - what are you?
+    - who are you?
+    - what is your location?
+    - what is your name
+    - your name
+    - your age
+    - hey! whats should i call you
+
+- intent: contact_us
+  examples: |
+    - contact team
+    - how to contact you
+    - can you connect me with team
+    - connect with team
+    - provide support
+    - please connect me with someone from your team
+    
+- intent: send_email
+  examples: |
+    - I want to to send email
+    - Send an email
+    - Send email
+    - email
+

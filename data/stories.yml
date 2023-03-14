@@ -1,0 +1,96 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+# rasa datavalidate
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+
+- story: angry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_angry
+  - action: utter_angry
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: mnnit info
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mnnit_info
+  - action: utter_mnnit_info
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_goodbye
+
+
+- story: cc info
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cc_info
+  - action: utter_cc_info
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_goodbye
+
+
+- story: robotics info
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: robotics_info
+  - action: utter_robo_info
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_goodbye
+
+
+- story: general info
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: general_clubs
+  - action: utter_general_info
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: bot can do
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_can_do
+  - action: utter_bot_can_do
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_goodbye
