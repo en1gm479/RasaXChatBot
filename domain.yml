@@ -1,0 +1,162 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - bot_can_do
+  - robotics_project
+  - general_clubs
+  - robotics_info
+  - cc_info
+  - mnnit_info
+  - mood_angry
+  - send_email
+  - chitchat
+  - contact_us
+  - outofscope
+  - faq
+
+slots:
+  name:
+    type: text
+  phone_number:
+    type: text
+  confirm_details:
+    type: any
+  email:
+    type: text
+  subject:
+    type: text
+  message:
+    type: text
+
+entities:
+  - email
+  - number
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_angry:
+  - text: " `Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.`
+                    ― Buddha
+            Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_outofscope:
+  - text: "Sorry, I wasn't able to understand. Could you please rephrase it?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_mnnit_info:
+  - text: "Motilal Nehru National Institute of Technology Allahabad (MNNIT or NIT Allahabad), formerly Motilal Nehru Regional           Engineering College (MNREC), is one of the 31 National Institutes of Technology, located in Allahabad (Prayagraj), Uttar Pradesh, India. 
+  It is one among the top NITs in the country, and like the rest of them, classified as an Institute of National Importance
+  Motilal Nehru Regional Engineering College was established in 1961.
+  Official Website: http://www.mnnit.ac.in/"
+
+  utter_cc_info:
+  - text: "MNNIT Computer Club (or CC club) is a coding club aimed at improving the coding culture of the college. MNNIT Computer Coding Club as we call it is a official student organisation under Student Activity Centre (SAC) of our college.
+
+  They host several events in the domain of Computer Science And Engineering for which they also conduct classes on regular basis. Students from various courses actively participate in these events and classes throughout the year."
+
+  utter_robo_info:
+  - text: "Robotics Club MNNIT is a diverse group of robotics enthusiasts from all the college departments, which runs under the umbrella of the Student Activity Centre of MNNIT Allahabad. 
+  Established in 2016, we are mainly concerned with building robots for academic purposes, competing at national events, or even building just out of imagination. This also puts us in frequent contact with a plethora of software, hardware, and technologies, like Computer Vision, Simulation Softwares (Gazebo, Pybullet, etc.), CAD Softwares, ROS, devising algorithms, path planning, Machine Learning, Microcontrollers, Kinematics to name just a few of many. Since its creation, this club has seen the completion of hundreds of projects, participated and won accolades in multiple national-level events, and organized various workshops with a decent footfall. Working closely with the industries, our people regularly acquire lucrative packages in tech giants, internships in IITs, and different tech companies. Our club has also been the birthplace of a startup TSAW in the drone sector, gaining ground in the field and as a company. We have a team of friendly experts equipped with all kinds of tutorials and workshops along with a compelling workspace to make you an integral part of this rapidly expanding world.
+  Official Website: https://roboticsclub.mnnit.ac.in/"
+
+  utter_bot_can_do:
+  - text: "Hey! I am a rasa powered bot designed to give you a small chit-chat to lift up your mood and can also provide various info about Motilal Nehru National Institute of Technology Allahabad (MNNIT or NIT Allahabad) and different clubs which are running under the umbrella of the Student Activity Centre of MNNIT Allahabad to improve the technical skills of students.
+  Here are the things I can help you:
+    - 
+    - Provide the information about MNNIT institute 
+    - Provide the general information about various clubs 
+    - Provide the information about Computer coding club 
+    - Provide the information about Robotics club"
+
+  utter_ask_name:
+  - text: "Could you please tell me your name?"
+
+  utter_ask_phone_number:
+  - text: "Can you please provide me your phone number?"
+
+  utter_ask_email:
+  - text: Please provide the email ID whom you want to an email.
+
+  utter_ask_subject:
+  - text: Please provide the subject for your email.
+
+  utter_ask_message:
+  - text: Please provide the message for your email.
+
+  utter_general_info:
+  - text: "there is many clubs"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_confirm_details:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+  - text: "These are the details I captured. Please confirm them below:\n Name: {name}\nEmail: {email}\nPhone No: {phone_number}"
+  
+  utter_mail_success:
+  - text: "I have mailed all details to our team. You will be reverted back within 48hrs."
+
+  utter_mail_canceled:
+  - text: "I have canceled the mail. Anything else you want help with?" 
+     
+actions:
+  - validate_contact_us_form
+  - action_submit
+
+forms:
+  email_form:
+    email:
+    - type: from_text
+    subject:
+    - type: from_text
+    message:
+    - type: from_text
+
+  contact_us_form:
+    required_slots:
+      name:
+      - type: from_text
+      email:
+      - type: from_entity
+        entity: email
+      phone_number:
+      - type: from_entity
+        entity: number
+      confirm_details:
+      - intent: affirm
+        value: yes
+        type: from_intent
+      - intent: deny
+        value: no
+        type: from_intent
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
